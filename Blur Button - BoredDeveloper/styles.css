@@ -1,0 +1,81 @@
+    button {
+        display: inline-block;
+        width: 150px;
+        height: 50px;
+        border-radius: 10px;
+        border: 1px solid #03045e;
+        position: relative;
+        overflow: hidden;
+        transition: all 0.5s ease-in;
+        z-index: 1;
+       }
+
+        button::before,
+            button::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 0;
+            height: 100%;
+            transform: skew(15deg);
+            transition: all 0.5s;
+            overflow: hidden;
+            z-index: -1;
+            }
+
+            button::before {
+            left: -10px;
+            background: #240046;
+            }
+
+            button::after {
+            right: -10px;
+            background: #5a189a;
+            }
+
+            button:hover::before,
+            button:hover::after {
+            width: 58%;
+            }
+
+            button:hover span {
+            color: #e0aaff;
+            transition: 0.3s;
+            }
+
+            button span {
+            color: #03045e;
+            font-size: 18px;
+            transition: all 0.3s ease-in;
+            }
+
+    .btns {
+        display: flex;
+        column-gap: 2rem;
+        background-color: var(--color-white-shade);
+        height: 100%;
+        width: 100%;
+        justify-content: center;
+        margin-top: 25%;
+    }
+
+    .btn{
+        background-color: var(--color-black);
+        color: var(--color-white);
+        cursor: pointer;
+        transition: 
+        scale 0.25s ease-in,
+        opacity 0.25s ease-in,
+        filter 0.25s ease-in;
+
+        &:hover{
+            scale: 1.2;
+        }
+    }
+
+    .btns:has(.btn:hover) .btn:not(:hover) {
+        scale: 0.8;
+        opacity: 0.8;
+        filter: blur(4px);
+    }
+
